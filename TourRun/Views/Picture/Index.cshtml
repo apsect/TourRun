@@ -1,0 +1,40 @@
+﻿@model IEnumerable<TourRun.Models.Picture>
+
+@{
+    ViewBag.Title = "Фото";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Фото</h2>
+
+<p>
+    @Html.ActionLink("Додати фото", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Tour.name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.imagePath)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Tour.name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.imagePath)
+        </td>
+        <td>
+            @Html.ActionLink("Редагувати", "Edit", new { id=item.id }) |
+            @Html.ActionLink("Детальніше", "Details", new { id=item.id }) |
+            @Html.ActionLink("Видалити", "Delete", new { id=item.id })
+        </td>
+    </tr>
+}
+
+</table>

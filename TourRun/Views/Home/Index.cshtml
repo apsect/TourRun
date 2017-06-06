@@ -1,0 +1,24 @@
+﻿@{
+    ViewBag.Title = "Головна";
+}
+
+@foreach (dynamic tour in ViewBag.Tours)
+{
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">@tour.name</h3>
+        </div>
+        <div class="panel-body">
+            <div class="media-left"><img src="@Url.Content(tour.imagePath)"></div>
+            <div class="media-body">
+                <h4>@tour.route</h4>
+                <p>Харчування: @tour.eat</p>
+                <p>Кількість місць: @tour.places</p>
+                <p>Відправлення: @tour.departure.ToString(@"dd\/MM\/yyyy")</p>
+                <p>Тривалість (днів): @tour.duration</p>
+                <p>Ціна: @tour.cost&#36</p>
+                <p><a class="btn btn-default" href="/Home/TourPage/@tour.id">Детальніше</a></p>
+            </div>
+        </div>
+    </div>
+}

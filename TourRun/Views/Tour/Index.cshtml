@@ -1,0 +1,71 @@
+﻿@model IEnumerable<TourRun.Models.Tour>
+
+@{
+    ViewBag.Title = "Тури";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Тури</h2>
+
+<p>
+    @Html.ActionLink("Додати тур", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.route)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.eat)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.places)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.departure)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.duration)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.cost)
+        </th>
+        <th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.route)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.eat)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.places)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.departure)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.duration)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.cost)
+        </td>
+        <td>
+            @Html.ActionLink("Редагувати", "Edit", new { id=item.id }) |
+            @Html.ActionLink("Детальніше", "Details", new { id=item.id }) |
+            @Html.ActionLink("Видалити", "Delete", new { id=item.id })
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,40 @@
+﻿@model IEnumerable<TourRun.Models.Transport>
+
+@{
+    ViewBag.Title = "Транспорт";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Транспорт</h2>
+
+<p>
+    @Html.ActionLink("Додати транспорт", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Transporter.name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.name)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Transporter.name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.name)
+        </td>
+        <td>
+            @Html.ActionLink("Редагувати", "Edit", new { id=item.id }) |
+            @Html.ActionLink("Детальніше", "Details", new { id=item.id }) |
+            @Html.ActionLink("Видалити", "Delete", new { id=item.id })
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,46 @@
+﻿@model IEnumerable<TourRun.Models.Hotel>
+
+@{
+    ViewBag.Title = "Готелі";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Готелі</h2>
+
+<p>
+    @Html.ActionLink("Додати готель", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.stars)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.roomType)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.stars)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.roomType)
+        </td>
+        <td>
+            @Html.ActionLink("Редагувати", "Edit", new { id=item.id }) |
+            @Html.ActionLink("Детальніше", "Details", new { id=item.id }) |
+            @Html.ActionLink("Видалити", "Delete", new { id=item.id })
+        </td>
+    </tr>
+}
+
+</table>

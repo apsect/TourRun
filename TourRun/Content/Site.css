@@ -1,0 +1,46 @@
+﻿body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+footer {
+    text-align: center;
+    color: #aaa;
+}
+
+.media-left img {
+    display: block;
+    width: 200px;
+    height: 200px;
+}
+
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+li {
+    list-style-type: none;
+}
+
+.panel {
+    margin-top: 10px;
+}
+
+.media-left {
+    float: left;
+}
+
+.media-body {
+    margin-left: 210px;
+}

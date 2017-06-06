@@ -1,0 +1,83 @@
+﻿@{
+    ViewBag.Title = "Сторінка туру";
+    var tour = ViewBag.Tour;
+}
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">@tour.name</h3>
+    </div>
+    <div class="panel-body">
+        <h4>@tour.route</h4>
+        <p>Харчування: @tour.eat</p>
+        <p>Кількість місць: @tour.places</p>
+        <p>Відправлення: @tour.departure.ToString(@"dd\/MM\/yyyy")</p>
+        <p>Тривалість (днів): @tour.duration</p>
+        <p>Ціна: @tour.cost&#36</p>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">Фотогалерея</h3>
+    </div>
+    <div class="panel-body">
+        @foreach (var image in tour.Pictures)
+        {
+            <p><img src="@Url.Content(image.imagePath)"></p>
+        }
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">План подорожі</h3>
+    </div>
+    <div class="panel-body">
+        <p>@tour.plan</p>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">Додаткова інформація</h3>
+    </div>
+    <div class="panel-body">
+        <p>@tour.description</p>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">Перевізники</h3>
+    </div>
+    <div class="panel-body">
+        @foreach (var transport in tour.Transports)
+        {
+            <p>@transport.Transporter.name | @transport.name</p>
+        }
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">Готелі</h3>
+    </div>
+    <div class="panel-body">
+        @foreach (var hotel in tour.Hotels)
+        {
+            <p>@hotel.name @hotel.stars&#42 (@hotel.roomType)</p>
+        }
+    </div>
+</div>
+
+
+@if (Request.IsAuthenticated)
+{
+    <p><a class="btn btn-default" href="/Home/OrderTour/@tour.id">Замовити</a></p>
+}
+else
+{
+    <h3>Для замовленню туру звяжіться з менеджером по телефону - 0 555 555 555</h3>
+    <h3>або зареєструйтесь в системі для замовлення туру онлайн.</h3>
+}

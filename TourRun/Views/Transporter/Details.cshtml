@@ -1,0 +1,27 @@
+﻿@model TourRun.Models.Transporter
+
+@{
+    ViewBag.Title = "Докладніше про перевізника";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Докладніше про перевізника</h2>
+
+<div>
+    <h4>Перевізник</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.name)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Редагувати", "Edit", new { id = Model.id }) |
+    @Html.ActionLink("Вернутися до списку", "Index")
+</p>

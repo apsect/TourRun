@@ -1,0 +1,77 @@
+﻿@model TourRun.Models.Order
+
+@{
+    ViewBag.Title = "Заключення договору";
+}
+
+<h2>Ви дісно бажаєте заключити договір про надання послуг?</h2>
+
+<div>
+    <h4>Заключення договору</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Tour.name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Tour.name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.surname)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.surname)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.phone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.phone)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.status)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.status)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.orderDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.orderDate)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Tour.cost)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Tour.cost)
+        </dd>
+    </dl>
+    <p><a class="btn btn-default" href="#">Завантажити версію договору в PDF</a></p>
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Заключити договір" class="btn btn-default" />
+        </div>
+    }
+</div>

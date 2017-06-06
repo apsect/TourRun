@@ -1,0 +1,41 @@
+﻿@model TourRun.Models.Transport
+
+@{
+    ViewBag.Title = "Видалити транспорт";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Видалення транспорту</h2>
+
+<h3>Ви впевненні, що хочете видалити цей транспорт?</h3>
+<div>
+    <h4>Транспорт</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Transporter.name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Transporter.name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.name)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Видалити" class="btn btn-default" /> |
+            @Html.ActionLink("Вернутися до списку", "Index")
+        </div>
+    }
+</div>

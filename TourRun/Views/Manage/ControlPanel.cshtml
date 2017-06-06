@@ -1,0 +1,22 @@
+﻿@{
+    ViewBag.Title = "Панель керування";
+}
+<h2>Панель керування</h2>
+<hr />
+<div>
+    <ul class="list-unstyled">
+        <li>@Html.ActionLink("Тури", "Index", "Tour")</li>
+        <li>@Html.ActionLink("Фото", "Index", "Picture")</li>
+        <li>@Html.ActionLink("Готелі", "Index", "Hotel")</li>
+        <li>@Html.ActionLink("Перевізники", "Index", "Transporter")</li>
+        <li>@Html.ActionLink("Транспортні засоби", "Index", "Transport")</li>
+        <li><hr /></li>
+        <li>@Html.ActionLink("Додати замовлення", "OrderTour", "Manage")</li>
+        <li>@Html.ActionLink("Список оплачених турів", "OrderList", "Manage")</li>
+        @if (Request.IsAuthenticated && User.IsInRole("admin"))
+        {
+            <li><hr/></li>
+            <li>@Html.ActionLink("Список оплачених турів з заключеним договором", "ReadyOrderList", "Manage")</li>
+        }
+    </ul>
+</div>
